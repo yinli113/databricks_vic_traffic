@@ -146,6 +146,29 @@ You can export these `.ipynb` files as YAML or scripts to integrate with your au
 - Integrate Delta Live Tables or Databricks Workflows for managed orchestration.
 - Publish dashboard artifacts (e.g., Power BI, Tableau) consuming Gold tables.
 
+### Roadmap Tracking
+
+- Maintain the executive-facing roadmap bullets in this README and update them as priorities shift.
+- Create GitHub issues for each roadmap item, tagged with labels such as `roadmap` or `phase-1`, and assign owners plus target dates.
+- Add those issues to a GitHub Project board (Kanban or timeline) to visualise `Planned → In Progress → Done` and manage dependencies.
+- Group related work under GitHub milestones (e.g., "Production Launch") so progress and due dates stay visible to stakeholders.
+- Link documentation, dashboards, or notebooks back to the relevant issue for single-source traceability.
+
+### PR Summary Template
+
+Use the snippet below when opening pull requests for README or documentation updates:
+
+```
+## Summary
+- <High-level change, e.g., "Refine README with executive overview and technical appendix">
+- <Key value delivered to stakeholders>
+
+## Testing
+- Documentation-only change (no automated tests)
+```
+
+For code-focused PRs, extend the template with sections for regression testing, data validation, or deployment considerations as needed.
+
 ### License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
