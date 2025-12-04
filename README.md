@@ -1,6 +1,7 @@
 # Databricks VIC Traffic
 
-![Traffic Flow Dashboard](traffic_dashboard.png)
+<!-- TODO: Add traffic_dashboard.png image file to display the Traffic Flow Dashboard -->
+<!-- ![Traffic Flow Dashboard](traffic_dashboard.png) -->
 
 Databricks VIC Traffic transforms Victorian Department of Transport feeds into trusted, analytics-ready insights. It gives business leaders near-real-time visibility into congestion, incidents, and network performance while enforcing enterprise-grade governance through Databricks Unity Catalog.
 
