@@ -1,5 +1,7 @@
 # Databricks VIC Traffic
 
+![Traffic Flow Dashboard](traffic_dashboard.png)
+
 Databricks VIC Traffic transforms Victorian Department of Transport feeds into trusted, analytics-ready insights. It gives business leaders near-real-time visibility into congestion, incidents, and network performance while enforcing enterprise-grade governance through Databricks Unity Catalog.
 
 ## Executive Overview
@@ -65,12 +67,12 @@ The sections below provide implementation guidance for engineering and data plat
 ```
 databricks_vic_traffic/
 ├── notebooks/
-│   ├── 1_config.py.ipynb          # Environment & catalog configuration
-│   ├── 2_setup.py.ipynb           # Source setup & schema registration
+│   ├── 1_config.ipynb             # Environment & catalog configuration
+│   ├── 2_setup.ipynb              # Source setup & schema registration
 │   ├── 3_clearup_old_tables.ipynb # Cleanup utilities for stale objects
-│   ├── 4_bronze_loader.py.ipynb   # Raw ingestion into Bronze tables
-│   ├── 5_silver_loader.py.ipynb   # Transformations into curated Silver tables
-│   ├── 6_gold_loader.py.ipynb     # Aggregations & Gold-level marts
+│   ├── 4_bronze_loader.ipynb      # Raw ingestion into Bronze tables
+│   ├── 5_silver_loader.ipynb      # Transformations into curated Silver tables
+│   ├── 6_gold_loader.ipynb        # Aggregations & Gold-level marts
 │   └── playground.ipynb           # Scratchpad for exploratory analysis
 └── CICD/
     ├── cicd-main.yml.ipynb        # GitHub Actions template for pipeline runs
@@ -81,15 +83,15 @@ databricks_vic_traffic/
 
 ### Medallion Architecture Overview
 
-- **Bronze Layer** (`4_bronze_loader.py.ipynb`)
+- **Bronze Layer** (`4_bronze_loader.ipynb`)
   - Land raw traffic telemetry and metadata as Delta tables.
   - Handles schema drift and ensures reproducibility with checkpoints.
 
-- **Silver Layer** (`5_silver_loader.py.ipynb`)
+- **Silver Layer** (`5_silver_loader.ipynb`)
   - Cleanses and standardises raw data (e.g., column typing, deduplication).
   - Applies business logic for traffic sensors, incidents, and congestion metrics.
 
-- **Gold Layer** (`6_gold_loader.py.ipynb`)
+- **Gold Layer** (`6_gold_loader.ipynb`)
   - Produces analytics-friendly aggregates for reporting dashboards.
   - Supports downstream consumption via Unity Catalog tables or Databricks SQL.
 
@@ -106,18 +108,18 @@ databricks_vic_traffic/
    - Ensure the target workspace has Unity Catalog enabled.
 
 3. **Set up configuration**
-   - Open `notebooks/1_config.py.ipynb` and configure:
+   - Open `notebooks/1_config.ipynb` and configure:
      - Catalog & schema names
      - Data storage locations (e.g., ADLS Gen2, S3)
      - Secrets scope for credentials (e.g., API keys, storage tokens)
 
 4. **Run ETL notebooks in order**
-   1. `1_config.py.ipynb`
-   2. `2_setup.py.ipynb`
-   3. `4_bronze_loader.py.ipynb`
-   4. `5_silver_loader.py.ipynb`
-   5. `6_gold_loader.py.ipynb`
-   - Execute `3_clearup_old_tables.py.ipynb` as needed to remove legacy tables prior to reruns.
+   1. `1_config.ipynb`
+   2. `2_setup.ipynb`
+   3. `4_bronze_loader.ipynb`
+   4. `5_silver_loader.ipynb`
+   5. `6_gold_loader.ipynb`
+   - Execute `3_clearup_old_tables.ipynb` as needed to remove legacy tables prior to reruns.
 
 ### CI/CD Automation
 
